@@ -1,5 +1,14 @@
 # Django settings for beta_invitation project.
+import os
+import django
 import dj_database_url
+
+# calculated paths for django and the site
+# used as starting points for various other paths
+DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+PROJECT_ROOT = '/'.join(SITE_ROOT.split('/')[:-1])
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -104,6 +113,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+	os.path.join(SITE_ROOT, 'templates'),
 )
 
 INSTALLED_APPS = (
