@@ -39,4 +39,31 @@ class ProspectsAPIView(APIView):
 			prospect = self.get_prospect(id_prospect)
 			serializer = ProspectSerializer(prospect)
 			return Response(serializer.data)
+	
+	def post(self, request, id_prospect = None):
+		"""
+			POST method handles prospect creation and prospect invitation sending.
+		"""
+
+		if id_prospect is None:
+			# Creating new prospect
+			if 'mail' in request.POST:
+				mail = request.POST['mail']
+				new_prospect = Prospect(mail = mail)
+				new_prospect.save()
+				serializer = ProspectSerializer(new_prospect)
+				return Response(serializer.data)
+			else:
+				raise Http404
+		else:
+			prospect = self.get_prospect(id_prospect)
+			if not prospect.is_invited:
+				print 'Inviting prospect %s'%(mail)
+				prospect.is_invited = True
+				prospect.save()
+			else:
+				print '%s already invited'%mail
+			
+			serializer = ProspectSerializer(prospect)
+			return Response(serializer.data)
 
