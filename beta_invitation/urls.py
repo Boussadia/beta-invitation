@@ -15,9 +15,10 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
 	
+	# Include api urls
+	url(r'^api/', include('invitations.urls')),
+
 	# Serving base index page
 	url(r'^/?', 'invitations.views.index'),
 
-	# Include api urls
-	url(r'^api/', include('invitations.urls')),
 )
