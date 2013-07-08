@@ -47,8 +47,8 @@ class ProspectsAPIView(APIView):
 
 		if id_prospect is None:
 			# Creating new prospect
-			if 'mail' in request.POST:
-				mail = request.POST['mail']
+			if 'mail' in request.DATA:
+				mail = request.DATA['mail']
 				new_prospect = Prospect(mail = mail)
 				new_prospect.save()
 				serializer = ProspectSerializer(new_prospect)
