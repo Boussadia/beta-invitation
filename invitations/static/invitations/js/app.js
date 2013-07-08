@@ -3,8 +3,9 @@ define([
 	'underscore',
 	'backbone',
 	'router',
+	'collections/prospects',
 	'cookie'
-], function($,_ , Backbone, Router ){
+], function($,_ , Backbone, Router, ProspectsCollection ){
 
 	// Applicayion object definition
 	function App(){
@@ -20,6 +21,8 @@ define([
 
 	// Method to call in order to start application
 	App.prototype.initialize = function(){
+		//Creating prospect collection
+		this.Collections.prospects = new ProspectsCollection();
 
 	}
 
