@@ -20,8 +20,12 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+# Setting up sqlite database for developement purposes
 DATABASES = {
-	'default': dj_database_url.config(default='postgres://postgres:2asefthukom,3@localhost:5432/beta'),
+	'default':{
+		'ENGINE': 'django.db.backends.sqlite3',
+		'NAME': "beta"
+	}
 }
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
