@@ -19,7 +19,7 @@ define([
 
 
 	// Method to call in order to start application
-	MasterCoursesApp.prototype.initialize = function(){
+	App.prototype.initialize = function(){
 
 	}
 
