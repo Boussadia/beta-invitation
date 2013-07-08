@@ -18,11 +18,25 @@ class ProspectsAPIView(APIView):
 	"""
 		Prospect api view.
 	"""
-
-	def get(self, request):
+	def get_prospect(self, id_prospect ):
+		"""
+			Helper method to properly handle prospect entity model retrieval
+		"""
+		try:
+			return Prospect.objects.get(pk = id_prospect)
+		except Prospect.DoesNotExist:
+			raise Http404
+	
+	def get(self, request, id_prospect = None):
 		"""
 			Getting all prospect lists.
 		"""
-		prospects = Prospect.objects.all()
-		serializer = ProspectSerializer(prospects, many = True)
-		return Response(serializer.data)
+		if id_prospect is None:
+			prospects = Prospect.objects.all()
+			serializer = ProspectSerializer(prospects, many = True)
+			return Response(serializer.data)
+		else:
+			prospect = self.get_prospect(id_prospect)
+			serializer = ProspectSerializer(prospect)
+			return Response(serializer.data)
+

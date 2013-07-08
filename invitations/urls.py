@@ -7,5 +7,5 @@ urlpatterns = patterns('',
 	# TO BE DONE
 
 	# Inviations
-	url('prospects/?', views.ProspectsAPIView.as_view()),
+	url('prospects/(?P<id_prospect>(\d+))?/?', views.ProspectsAPIView.as_view()),
 )
