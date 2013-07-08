@@ -58,11 +58,11 @@ class ProspectsAPIView(APIView):
 		else:
 			prospect = self.get_prospect(id_prospect)
 			if not prospect.is_invited:
-				print 'Inviting prospect %s'%(mail)
+				print 'Inviting prospect %s'%(prospect.mail)
 				prospect.is_invited = True
 				prospect.save()
 			else:
-				print '%s already invited'%mail
+				print '%s already invited'%prospect.mail
 			
 			serializer = ProspectSerializer(prospect)
 			return Response(serializer.data)
