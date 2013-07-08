@@ -1,0 +1,15 @@
+<% if (is_active ) {%>
+	<div class="top-icon" id='top-icon-play'>
+		<div>
+			<img src="/static/frontend/img/header/play-icon.png">
+			<ul>
+				<li><a class="no-hijax" id='logout'>Se déconnecter</a></li>
+				<li><a class="no-hijax" id='import-controller'>Importer ma liste</a></li>
+			</ul>
+		</div>
+	</div>
+<% } %>
+
+<div class="top-icon"><%= _(username).capitalize() %></div>
+
+<% if (is_active ) {%> <div class="top-icon arrow"><img src="/static/frontend/img/header/user-icon.png"></div><% } %>

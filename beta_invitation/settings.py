@@ -126,6 +126,7 @@ INSTALLED_APPS = (
 	'south',
 	'invitations',
 	'rest_framework',
+	'cachebuster',
 	# Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -160,3 +161,11 @@ LOGGING = {
         },
     }
 }
+
+
+# Cache busting
+from django.template.loader import add_to_builtins
+
+add_to_builtins('cachebuster.templatetags.cachebuster')
+# CACHEBUSTER_UNIQUE_STRING = git.unique_string(__file__)
+CACHEBUSTER_PREPEND_STATIC = False

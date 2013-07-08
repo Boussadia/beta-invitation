@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+	<head>
+		<title> MasterCourses, Inviations App </title>
+
+		<!-- Classic meta description -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Language" content="fr-fr">
+		<meta name="viewport" content="width=device-width" />
+		<meta name="author" content="www.mastercourses.com" >
+
+		<!-- CSS -->
+		<link href="{% static invitations/css/main.css %}" rel="stylesheet">
+
+		<!-- JS -->
+		{% if DEBUG %}
+			<script data-main="{{STATIC_URL}}invitations/js/main.dev.js" src="{% static invitations/js/libs/require/require.js%}"></script>
+		{% else %}
+			<script data-main="{{STATIC_URL}}invitations/js/main.js" src="{% static invitations/js/libs/require/require.js%}"></script>
+		{% endif %}
+	</head>
+	<body>
+
+
+	</body>
+</html>
