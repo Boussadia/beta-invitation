@@ -1,22 +1,21 @@
 define([
 'underscore',
 'backbone',
-'collections/prospects',
-'text!../../templates/listTemplate.html'
-],function(_, Backbone, ProspectCollection, listTemplate ){
+'text!../../templates/itemTemplate.html'
+],function(_, Backbone, itemTemplate ){
 
 		var ProspectView = Backbone.View.extend({
 			tagName: 'li',
-			className: 'prospects',
-			template: _.template(listTemplate),
+			className: 'prospect',
+			template: _.template(itemTemplate),
 		
-		initialize: function(){
-			this.prospectCollection = new ProspectCollection();
-			this.prospectCollection.fetch()
+		initialize: function(options){
+			this.prospectModel = options.prospectModel;
 		},
 		
 		render: function() {
-			this.$el.html(this.template(this.prospectCollection.toJSON()));
+			this.$el.empty(); 
+			this.$el.html(this.template(this.prospectModel.toJSON()));
 			return this;
 		}
 		}); // End Prospect View

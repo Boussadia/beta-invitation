@@ -1,12 +1,12 @@
 define([
 	'underscore',
 	'backbone',
-	'models/prospect',
-	'views/prospect'
-], function(_, Backbone, ProspectModel, ProspectView){
+	'../models/prospect',
+	'../views/prospect'
+], function(_, Backbone, Prospect, ProspectView){
 	
 		var ProspectsCollection = Backbone.Collection.extend({
-			model: ProspectModel,
+			model: Prospect,
 			url: "api/prospects/"
 		
 		}); //End Prospects Collection

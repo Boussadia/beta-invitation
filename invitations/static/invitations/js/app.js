@@ -4,9 +4,9 @@ define([
 	'backbone',
 	'router',
 	'collections/prospects',
-	'views/prospect',
+	'views/prospectsCollectionView',
 	'cookie'
-], function($,_ , Backbone, Router, ProspectsCollection, ProspectView ){
+], function($,_ , Backbone, Router, ProspectsCollection, ProspectsCollectionView ){
 
 	// Applicayion object definition
 	function App(){
@@ -24,7 +24,11 @@ define([
 	App.prototype.initialize = function(){
 		//Creating prospect collection
 		this.Collections.prospects = new ProspectsCollection();
-
+		 this.Collections.prospects.fetch();
+		 this.Views.prospectsCollectionView= new ProspectsCollectionView({
+		 	prospectsCollection:this.Collections.prospects,
+		 	el: $('ul#list')
+		 })
 	}
 
 
