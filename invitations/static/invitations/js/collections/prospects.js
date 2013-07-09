@@ -1,8 +1,9 @@
 define([
 	'underscore',
 	'backbone',
-	'models/prospect'
-], function(_, Backbone, ProspectModel){
+	'models/prospect',
+	'views/prospect'
+], function(_, Backbone, ProspectModel, ProspectView){
 	
 		var ProspectsCollection = Backbone.Collection.extend({
 			model: ProspectModel,

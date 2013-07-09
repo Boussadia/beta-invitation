@@ -4,8 +4,9 @@ define([
 	'backbone',
 	'router',
 	'collections/prospects',
+	'views/prospect',
 	'cookie'
-], function($,_ , Backbone, Router, ProspectsCollection ){
+], function($,_ , Backbone, Router, ProspectsCollection, ProspectView ){
 
 	// Applicayion object definition
 	function App(){
