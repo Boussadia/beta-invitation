@@ -28,7 +28,7 @@ define([
 			},
 			initialize: function(options){
 				this.prospectModel = options.prospectModel;
-				
+				this.prospectModel.on('change', this.render, this)
 			},
 		
 			render: function() {

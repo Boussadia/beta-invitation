@@ -30,7 +30,9 @@ define([
 		 	prospectsCollection:this.Collections.prospects,
 		 	el: $('ul#list')
 		 })
-		 this.newMail = new addMail();
+		 this.newMail = new addMail({
+			 collection : this.Collections.prospects
+		 });
 	}
 
 
