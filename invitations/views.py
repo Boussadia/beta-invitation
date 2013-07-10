@@ -40,30 +40,37 @@ class ProspectsAPIView(APIView):
 			serializer = ProspectSerializer(prospect)
 			return Response(serializer.data)
 	
-	def post(self, request, id_prospect = None):
+	def post(self, request):
 		"""
-			POST method handles prospect creation and prospect invitation sending.
+			POST method handles prospect creation
 		"""
 
-		if id_prospect is None:
-			# Creating new prospect
-			if 'mail' in request.DATA:
-				mail = request.DATA['mail']
-				new_prospect = Prospect(mail = mail)
-				new_prospect.save()
-				serializer = ProspectSerializer(new_prospect)
-				return Response(serializer.data)
-			else:
-				raise Http404
-		else:
-			prospect = self.get_prospect(id_prospect)
-			if not prospect.is_invited:
-				print 'Inviting prospect %s'%(prospect.mail)
-				prospect.is_invited = True
-				prospect.save()
-			else:
-				print '%s already invited'%prospect.mail
-			
-			serializer = ProspectSerializer(prospect)
+		# Creating new prospect
+		if 'mail' in request.DATA:
+			mail = request.DATA['mail']
+			new_prospect = Prospect(mail = mail)
+			new_prospect.save()
+			serializer = ProspectSerializer(new_prospect)
 			return Response(serializer.data)
+		else:
+			raise Http404
+	
+	def put(self, request, id_prospect):
+		"""
+			PUT method, send mail to invite prospect to try service
+		"""
+
+		if 'id_prospect' in request.DATA:
+			id_prospect = request.DATA['id_prospect']
+		
+		prospect = self.get_prospect(id_prospect)
+		if not prospect.is_invited:
+			print 'Inviting prospect %s'%(prospect.mail)
+			prospect.is_invited = True
+			prospect.save()
+		else:
+			print '%s already invited'%prospect.mail
+		
+		serializer = ProspectSerializer(prospect)
+		return Response(serializer.data)
 
