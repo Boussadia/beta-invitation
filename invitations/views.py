@@ -3,9 +3,11 @@
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.conf import settings
+from django.db import IntegrityError
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework import status
 
 from invitations.models import Prospect
 from invitations.serializer import ProspectSerializer
@@ -48,10 +50,14 @@ class ProspectsAPIView(APIView):
 		# Creating new prospect
 		if 'mail' in request.DATA:
 			mail = request.DATA['mail']
-			new_prospect = Prospect(mail = mail)
-			new_prospect.save()
-			serializer = ProspectSerializer(new_prospect)
-			return Response(serializer.data)
+			try:
+				new_prospect = Prospect(mail = mail)
+				new_prospect.save()
+				serializer = ProspectSerializer(new_prospect)
+				return Response(serializer.data)
+			except IntegrityError, e:
+				content = {'detail': 'mail %s already in prospects database'%mail}
+				return Response(content, status = status.HTTP_409_CONFLICT)
 		else:
 			raise Http404
 	
