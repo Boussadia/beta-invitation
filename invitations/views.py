@@ -40,7 +40,7 @@ class ProspectsAPIView(APIView):
 			serializer = ProspectSerializer(prospect)
 			return Response(serializer.data)
 	
-	def post(self, request):
+	def post(self, request, id_prospect = None):
 		"""
 			POST method handles prospect creation
 		"""
