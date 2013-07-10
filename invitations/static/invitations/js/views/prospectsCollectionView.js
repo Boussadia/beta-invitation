@@ -15,7 +15,7 @@ define([
 		render: function(){
 			this.$el.empty() //Make sure $el is empty before using it
 			// every prospect passing thru the Loop (each is an underscore function)
-			this.prospectsCollection.each(function(propspect){
+			this.prospectsCollection.each(function(prospect){
 				var view = new ProspectView({
 					prospectModel: prospect
 				});
