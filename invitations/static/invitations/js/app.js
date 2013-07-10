@@ -5,8 +5,9 @@ define([
 	'router',
 	'collections/prospects',
 	'views/prospectsCollectionView',
+	'views/addMail',
 	'cookie'
-], function($,_ , Backbone, Router, ProspectsCollection, ProspectsCollectionView ){
+], function($,_ , Backbone, Router, ProspectsCollection, ProspectsCollectionView, addMail ){
 
 	// Applicayion object definition
 	function App(){
@@ -29,6 +30,7 @@ define([
 		 	prospectsCollection:this.Collections.prospects,
 		 	el: $('ul#list')
 		 })
+		 this.newMail = new addMail();
 	}
 
 

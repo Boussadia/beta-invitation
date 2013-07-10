@@ -10,6 +10,8 @@ define([
 		initialize: function(options){
 			this.prospectsCollection = options.prospectsCollection;
 			
+			this.prospectsCollection.on('add remove', this.render, this);//Loading Collection render on add or remove in THIS context
+			
 		},
 		
 		render: function(){
@@ -24,7 +26,8 @@ define([
 			}, this);
 			
 			return this;
-		}
+		}//,
+		//addMail: function()
 		
 	});
 	return ProspectsCollectionView;

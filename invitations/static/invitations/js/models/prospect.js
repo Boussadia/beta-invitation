@@ -5,11 +5,12 @@ define([
 	
 		var Prospect = Backbone.Model.extend({
 			default: {
-				mail: "mail@mail.com"
+				mail: "mail@mail.com",
+				is_invited: false	
 			},
-				
+			
 		}); // End Prospect Model
-		
+	
 		return Prospect;
 		
 	} // End Function
