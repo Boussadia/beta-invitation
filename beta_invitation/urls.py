@@ -15,6 +15,8 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 	
 	# Include api urls
 	url(r'^api/', include('invitations.urls')),
@@ -23,10 +25,3 @@ urlpatterns = patterns('',
 	url(r'^/?', 'invitations.views.index'),
 
 )
-
-
-if not settings.DEBUG:
-    # Static files for debuggig purposses, DO NOT USE THIS IN REALLY PRODUCTION ENVIRONNEMENT
-    urlpatterns += patterns('',
-        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
-    )
