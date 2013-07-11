@@ -7,7 +7,7 @@ define([
 		var addMail = Backbone.View.extend({
 			el: '#addMail',
 			events: {
-				'submit' : 'submit'
+				'click #submit' : 'submit'
 			},
 			
 			initialize: function(options){

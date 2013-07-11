@@ -1,3 +1,108 @@
 body {
+	background-color: /*#078bc9;*/#f1f0f0;
+}
+
+h1{
+	font-size: 35px;
+	font-family: helvetica, Verdana, Arial;
+	text-align: center;
+	color: #63c20c;
+}
+
+#container{
+	background-color: #fff;
+	width: 840px;
+	margin: 0 auto;
+	border-radius: 5px;
+	padding: 20px 30px;
+}
+
+
+
+input[type="text"]{
+	width: 300px;
+	height: 30px;
+	font-size: 20px;
+	font-family: helvetica, Verdana, Arial;
+	float: left;
 	
+}
+
+#submit{
+	height: 36px;
+	width: 36px;
+	float: left;
+	margin-left: -3px;
+	background-color: #63c20c;
+	color: #fff;
+	text-transform: uppercase;
+	display: inline-block;
+	border: none;
+}
+
+ul{
+	clear: left;
+	padding-top: 25px;
+}
+
+.mail{
+	font-size: 16px;
+	cursor: default;
+}
+
+li{
+	list-style:none;
+	padding: 5px 10px;
+	border-radius: 4px;
+	line-height: 2;
+}
+li:nth-child(2n+2){
+	background-color: #f1f0f0;
+}
+.invited{
+	float: right;
+	color: #fff;
+	text-transform: uppercase;
+	border: none;
+	background-color: #63c20c;
+	cursor: default;
+	line-height: 2;
+}
+.invite{
+	float: right;
+	color: #fff;
+	text-transform: uppercase;
+	border: none;
+	background-color: #078bc9;
+	cursor: pointer;
+	line-height: 2;
+}
+
+@media screen (maxwidth: 640px){
+	
+	
+	#container {
+        width: 70%;
+    }
+	
+	
+	input[type="text"]{
+		width: 200px;
+		height: 30px;
+		font-size: 20px;
+		font-family: helvetica, Verdana, Arial;
+		float: left;
+	}
+	
+	#submit{
+		height: 36px;
+		width: 36px;
+		float: left;
+		margin-left: -3px;
+		background-color: #63c20c;
+		color: #fff;
+		text-transform: uppercase;
+		display: inline-block;
+		border: none;
+	}
 }
