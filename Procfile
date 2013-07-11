@@ -1,1 +1,1 @@
-web: gunicorn beta-invitation.wsgi
+web: gunicorn beta_invitation.wsgi
