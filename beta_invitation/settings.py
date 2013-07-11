@@ -10,7 +10,7 @@ SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 PROJECT_ROOT = '/'.join(SITE_ROOT.split('/')[:-1])
 
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
