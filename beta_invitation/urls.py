@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.conf import settings
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -22,3 +23,10 @@ urlpatterns = patterns('',
 	url(r'^/?', 'invitations.views.index'),
 
 )
+
+
+if not settings.DEBUG:
+    # Static files for debuggig purposses, DO NOT USE THIS IN REALLY PRODUCTION ENVIRONNEMENT
+    urlpatterns += patterns('',
+        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    )
