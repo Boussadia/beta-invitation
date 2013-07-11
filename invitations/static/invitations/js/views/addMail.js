@@ -1,36 +1,30 @@
 define([
-'jquery',
-'underscore',
-'backbone'
+	'jquery',
+	'underscore',
+	'backbone'
 ],function($,_, Backbone ){
-
-		var addMail = Backbone.View.extend({
-			el: '#addMail',
-			events: {
-				'click #submit' : 'submit'
-			},
+	
+	var AddMail = Backbone.View.extend({
+		el: '#addMail',
+		events: {
+			'click #submit' : 'submit'
+		},
+		initialize: function(options){
+			this.collection = options.collection
+		},
+		submit: function(e){
+			e.preventDefault();
+			var newMail =  this.$el.find('input[type=text]').val();
 			
-			initialize: function(options){
-			
-				this.collection = options.collection
-			},
-			
-			submit: function(e){
-				 e.preventDefault();
-				 var newMail =  $(e.currentTarget).find('input[type=text]').val();
-				
-				 this.collection.create({
-					 'mail': newMail,
-					 'is_invited': false
-				 });
-				 
-				 
-
-			}
-		});// End addMail
+			this.collection.create({
+				'mail': newMail,
+				'is_invited': false
+			});
+		}
+	});// End addMail
+	
+	return AddMail;
 		
-		return addMail;
-		
-	}// End Function
+}// End Function
 
 ); // End Define
