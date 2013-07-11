@@ -17,10 +17,12 @@ h1{
 	padding: 20px 30px;
 }
 
+#addMail{
+	width: 100%;
+}
 
-
-input[type="text"]{
-	width: 300px;
+#addMail input[type="text"]{
+	width: 84%;
 	height: 30px;
 	font-size: 20px;
 	font-family: helvetica, Verdana, Arial;
@@ -28,9 +30,12 @@ input[type="text"]{
 	
 }
 
+
+
 #submit{
 	height: 36px;
 	width: 36px;
+	max-width: 14%;
 	float: left;
 	margin-left: -3px;
 	background-color: #63c20c;
