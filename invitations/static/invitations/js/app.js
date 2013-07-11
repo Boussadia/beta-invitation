@@ -33,6 +33,7 @@ define([
 		 this.newMail = new addMail({
 			 collection : this.Collections.prospects
 		 });
+		 
 	}
 
 
