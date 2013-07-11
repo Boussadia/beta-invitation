@@ -28,10 +28,10 @@ if DEBUG:
             'NAME': "beta"
         }
     }
-else:
-    DATABASES = {
+#else:
+DATABASES = {
     'default': dj_database_url.config(default='postgres://postgres:2asefthukom,3@localhost:5432/beta'),
-    }
+}
 
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
